@@ -230,12 +230,21 @@ For each question included it gives the key-value pairs of answer,category, diff
 
 `POST '/api/v1.0/quizzes'`
 
-- Creates a new question 
+- Returns a random question of a specific category that hasn't been already answered
 - Request Arguments: previous_questions and category
-- Returns:  An object with the result of the creation  and the id of the created question
+- Returns:  A question with all its  info (answer, category, difficulty, id, question) of a specific category that wasn't already answered in the previous questions asked.
 
 ```json
-
+{
+  "question": {
+    "answer": "Jackson Pollock",
+    "category": 2,
+    "difficulty": 2,
+    "id": 19,
+    "question": "Which American artist was a pioneer of Abstract Expressionism, and a leading exponent of action painting?"
+  },
+  "success": true
+}
 
 ## Testing
 
