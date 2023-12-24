@@ -11,7 +11,8 @@ QUESTIONS_PER_PAGE = 10
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__)
-    setup_db(app)
+    database_path = "postgres://postgres:postgres@127.0.0.1:5432/trivia_test"
+    setup_db(app, database_path)
 
     """
     @TODO: Set up CORS. Allow '*' for origins. Delete the sample route after completing the TODOs
