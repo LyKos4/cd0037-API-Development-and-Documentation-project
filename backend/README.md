@@ -90,6 +90,44 @@ You will need to provide detailed documentation of your API endpoints including 
 }
 ```
 
+`GET '/api/v1.0/questions'`
+
+- Fetches a dictionary of questions in which the keys are the ids and there are columns of values for the questions, the answers, the difficulties and the categories
+- Request Arguments: None
+- Returns: An object with 5 key-value pairs for question, answer, category, difficulty and id.
+
+```json
+    {
+      "answer": "Maya Angelou",
+      "category": 4,
+      "difficulty": 2,
+      "id": 5,
+      "question": "Whose autobiography is entitled 'I Know Why the Caged Bird Sings'?"
+    },
+    {
+      "answer": "Muhammad Ali",
+      "category": 4,
+      "difficulty": 1,
+      "id": 9,
+      "question": "What boxer's original name is Cassius Clay?"
+    },
+    {
+      "answer": "Apollo 13",
+      "category": 5,
+      "difficulty": 4,
+      "id": 2,
+      "question": "What movie earned Tom Hanks his third straight Oscar nomination, in 1996?"
+    },
+    {
+      "answer": "Tom Cruise",
+      "category": 5,
+      "difficulty": 4,
+      "id": 4,
+      "question": "What actor did author Anne Rice first denounce, then praise in the role of her beloved Lestat?"
+    }
+```
+
+
 ## Testing
 
 Write at least one test for the success and at least one error behavior of each endpoint using the unittest library.
