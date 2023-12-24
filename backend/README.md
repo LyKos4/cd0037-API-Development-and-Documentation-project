@@ -89,7 +89,7 @@ You will need to provide detailed documentation of your API endpoints including 
   "6": "Sports"
 }
 ```
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 `GET '/api/v1.0/questions'`
 
 - Fetches a dictionary of questions in which the keys are the ids and there are columns of values for the questions, the answers, the difficulties and the categories
@@ -126,7 +126,7 @@ You will need to provide detailed documentation of your API endpoints including 
       "question": "What actor did author Anne Rice first denounce, then praise in the role of her beloved Lestat?"
     }
 ```
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 `DELETE '/api/v1.0/questions/<question_id>'`
 
 - Deletes a question of a specific id
@@ -138,7 +138,7 @@ You will need to provide detailed documentation of your API endpoints including 
   "deleted": 26,
   "success": true
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 `POST '/api/v1.0/questions'`
 
 - Creates a new question 
@@ -150,7 +150,7 @@ You will need to provide detailed documentation of your API endpoints including 
   "created": 28,
   "success": true
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 `POST '/api/v1.0/questions/search'`
 
 - Searches for the questions that include in them a specific term (inside question itself)
@@ -181,15 +181,51 @@ You will need to provide detailed documentation of your API endpoints including 
   "total_questions": 2
 }
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 `GET '/api/v1.0/categories/<category_id>/questions'`
 
-- Creates a new question 
+- Gets all the questions of a specific category
 - Request Arguments: None
-- Returns:  An object with the result of the creation  and the id of the created question
+- Returns:  An object with the current category name as well as all the questions that are in this category. 
+For each question included it gives the key-value pairs of answer,category, difficulty, id and question
 
 ```json
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+{
+  "current_category": "History",
+  "questions": [
+    {
+      "answer": "Maya Angelou",
+      "category": 4,
+      "difficulty": 2,
+      "id": 5,
+      "question": "Whose autobiography is entitled 'I Know Why the Caged Bird Sings'?"
+    },
+    {
+      "answer": "Muhammad Ali",
+      "category": 4,
+      "difficulty": 1,
+      "id": 9,
+      "question": "What boxer's original name is Cassius Clay?"
+    },
+    {
+      "answer": "George Washington Carver",
+      "category": 4,
+      "difficulty": 2,
+      "id": 12,
+      "question": "Who invented Peanut Butter?"
+    },
+    {
+      "answer": "Scarab",
+      "category": 4,
+      "difficulty": 4,
+      "id": 23,
+      "question": "Which dung beetle was worshipped by the ancient Egyptians?"
+    }
+  ],
+  "success": true,
+  "total_questions": 4
+}
+
 `POST '/api/v1.0/quizzes'`
 
 - Creates a new question 
