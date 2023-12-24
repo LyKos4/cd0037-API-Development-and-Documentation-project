@@ -131,7 +131,7 @@ You will need to provide detailed documentation of your API endpoints including 
 
 - Deletes a question of a specific id
 - Request Arguments: the id of the question that is asked to be deleted
-- Returns: An object the result of the deletion and the id of the deleted question
+- Returns: An object with the result of the deletion and the id of the deleted question
 
 ```json
 {
@@ -139,9 +139,65 @@ You will need to provide detailed documentation of your API endpoints including 
   "success": true
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`POST '/api/v1.0/questions'`
+
+- Creates a new question 
+- Request Arguments: question, answer, difficulty and category
+- Returns:  An object with the result of the creation  and the id of the created question
+
+```json
+{
+  "created": 28,
+  "success": true
+}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`POST '/api/v1.0/questions/search'`
+
+- Searches for the questions that include in them a specific term (inside question itself)
+- Request Arguments: searchterm
+- Returns:  Returns the objects of key-value pairs for answer, category, difficulty, id and question for all the questions that include the searchterm.
+            Also returns the status of the search result and the number of the questions found to satisfy the condition set.
+
+```json
+{
+  "current_category": null,
+  "questions": [
+    {
+      "answer": "Muhammad Ali",
+      "category": 4,
+      "difficulty": 1,
+      "id": 9,
+      "question": "What boxer's original name is Cassius Clay?"
+    },
+    {
+      "answer": "Brazil",
+      "category": 6,
+      "difficulty": 3,
+      "id": 10,
+      "question": "Which is the only team to play in every soccer World Cup tournament?"
+    }
+  ],
+  "success": true,
+  "total_questions": 2
+}
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`GET '/api/v1.0/categories/<category_id>/questions'`
+
+- Creates a new question 
+- Request Arguments: None
+- Returns:  An object with the result of the creation  and the id of the created question
+
+```json
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`POST '/api/v1.0/quizzes'`
+
+- Creates a new question 
+- Request Arguments: previous_questions and category
+- Returns:  An object with the result of the creation  and the id of the created question
+
+```json
+
 
 ## Testing
 
