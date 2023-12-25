@@ -153,6 +153,7 @@ You will need to provide detailed documentation of your API endpoints including 
 
 
 
+
 `POST '/api/v1.0/questions/search'`
 
 - Searches for the questions that include in them a specific term (inside question itself)
