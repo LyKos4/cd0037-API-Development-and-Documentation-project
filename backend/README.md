@@ -90,6 +90,162 @@ You will need to provide detailed documentation of your API endpoints including 
 }
 ```
 
+`GET '/api/v1.0/questions'`
+
+- Fetches a dictionary of questions in which the keys are the ids and there are columns of values for the questions, the answers, the difficulties and the categories
+- Request Arguments: None
+- Returns: An object with 5 key-value pairs for question, answer, category, difficulty and id.
+
+```json
+    {
+      "answer": "Maya Angelou",
+      "category": 4,
+      "difficulty": 2,
+      "id": 5,
+      "question": "Whose autobiography is entitled 'I Know Why the Caged Bird Sings'?"
+    },
+    {
+      "answer": "Muhammad Ali",
+      "category": 4,
+      "difficulty": 1,
+      "id": 9,
+      "question": "What boxer's original name is Cassius Clay?"
+    },
+    {
+      "answer": "Apollo 13",
+      "category": 5,
+      "difficulty": 4,
+      "id": 2,
+      "question": "What movie earned Tom Hanks his third straight Oscar nomination, in 1996?"
+    },
+    {
+      "answer": "Tom Cruise",
+      "category": 5,
+      "difficulty": 4,
+      "id": 4,
+      "question": "What actor did author Anne Rice first denounce, then praise in the role of her beloved Lestat?"
+    }
+```
+
+`DELETE '/api/v1.0/questions/<question_id>'`
+
+- Deletes a question of a specific id
+- Request Arguments: the id of the question that is asked to be deleted
+- Returns: An object with the result of the deletion and the id of the deleted question
+
+```json
+{
+  "deleted": 26,
+  "success": true
+}
+
+`POST '/api/v1.0/questions'`
+
+
+- Creates a new question 
+- Request Arguments: question, answer, difficulty and category
+- Returns:  An object with the result of the creation  and the id of the created question
+
+```json
+{
+  "created": 28,
+  "success": true
+}
+
+
+`POST '/api/v1.0/questions/search'`
+
+- Searches for the questions that include in them a specific term (inside question itself)
+- Request Arguments: searchterm
+- Returns:  Returns the objects of key-value pairs for answer, category, difficulty, id and question for all the questions that include the searchterm.
+            Also returns the status of the search result and the number of the questions found to satisfy the condition set.
+
+```json
+{
+  "current_category": null,
+  "questions": [
+    {
+      "answer": "Muhammad Ali",
+      "category": 4,
+      "difficulty": 1,
+      "id": 9,
+      "question": "What boxer's original name is Cassius Clay?"
+    },
+    {
+      "answer": "Brazil",
+      "category": 6,
+      "difficulty": 3,
+      "id": 10,
+      "question": "Which is the only team to play in every soccer World Cup tournament?"
+    }
+  ],
+  "success": true,
+  "total_questions": 2
+}
+
+
+`GET '/api/v1.0/categories/<category_id>/questions'`
+
+- Gets all the questions of a specific category
+- Request Arguments: None
+- Returns:  An object with the current category name as well as all the questions that are in this category. 
+For each question included it gives the key-value pairs of answer,category, difficulty, id and question
+
+```json
+{
+  "current_category": "History",
+  "questions": [
+    {
+      "answer": "Maya Angelou",
+      "category": 4,
+      "difficulty": 2,
+      "id": 5,
+      "question": "Whose autobiography is entitled 'I Know Why the Caged Bird Sings'?"
+    },
+    {
+      "answer": "Muhammad Ali",
+      "category": 4,
+      "difficulty": 1,
+      "id": 9,
+      "question": "What boxer's original name is Cassius Clay?"
+    },
+    {
+      "answer": "George Washington Carver",
+      "category": 4,
+      "difficulty": 2,
+      "id": 12,
+      "question": "Who invented Peanut Butter?"
+    },
+    {
+      "answer": "Scarab",
+      "category": 4,
+      "difficulty": 4,
+      "id": 23,
+      "question": "Which dung beetle was worshipped by the ancient Egyptians?"
+    }
+  ],
+  "success": true,
+  "total_questions": 4
+}
+
+`POST '/api/v1.0/quizzes'`
+
+- Returns a random question of a specific category that hasn't been already answered
+- Request Arguments: previous_questions and category
+- Returns:  A question with all its  info (answer, category, difficulty, id, question) of a specific category that wasn't already answered in the previous questions asked.
+
+```json
+{
+  "question": {
+    "answer": "Jackson Pollock",
+    "category": 2,
+    "difficulty": 2,
+    "id": 19,
+    "question": "Which American artist was a pioneer of Abstract Expressionism, and a leading exponent of action painting?"
+  },
+  "success": true
+}
+
 ## Testing
 
 Write at least one test for the success and at least one error behavior of each endpoint using the unittest library.
