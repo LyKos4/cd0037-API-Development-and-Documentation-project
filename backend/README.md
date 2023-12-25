@@ -138,6 +138,7 @@ You will need to provide detailed documentation of your API endpoints including 
   "deleted": 26,
   "success": true
 }
+```
 
 `POST '/api/v1.0/questions'`
 
@@ -150,7 +151,7 @@ You will need to provide detailed documentation of your API endpoints including 
   "created": 28,
   "success": true
 }
-
+```
 
 
 
@@ -183,7 +184,7 @@ You will need to provide detailed documentation of your API endpoints including 
   "success": true,
   "total_questions": 2
 }
-
+```
 
 `GET '/api/v1.0/categories/<category_id>/questions'`
 
@@ -228,7 +229,7 @@ For each question included it gives the key-value pairs of answer,category, diff
   "success": true,
   "total_questions": 4
 }
-
+```
 `POST '/api/v1.0/quizzes'`
 
 - Returns a random question of a specific category that hasn't been already answered
@@ -246,7 +247,7 @@ For each question included it gives the key-value pairs of answer,category, diff
   },
   "success": true
 }
-
+```
 ## Testing
 
 Write at least one test for the success and at least one error behavior of each endpoint using the unittest library.
