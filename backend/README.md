@@ -140,8 +140,6 @@ You will need to provide detailed documentation of your API endpoints including 
 }
 
 `POST '/api/v1.0/questions'`
-
-
 - Creates a new question 
 - Request Arguments: question, answer, difficulty and category
 - Returns:  An object with the result of the creation  and the id of the created question
@@ -154,12 +152,10 @@ You will need to provide detailed documentation of your API endpoints including 
 
 
 `POST '/api/v1.0/questions/search'`
-
 - Searches for the questions that include in them a specific term (inside question itself)
 - Request Arguments: searchterm
 - Returns:  Returns the objects of key-value pairs for answer, category, difficulty, id and question for all the questions that include the searchterm.
             Also returns the status of the search result and the number of the questions found to satisfy the condition set.
-
 ```json
 {
   "current_category": null,
@@ -185,12 +181,10 @@ You will need to provide detailed documentation of your API endpoints including 
 
 
 `GET '/api/v1.0/categories/<category_id>/questions'`
-
 - Gets all the questions of a specific category
 - Request Arguments: None
 - Returns:  An object with the current category name as well as all the questions that are in this category. 
 For each question included it gives the key-value pairs of answer,category, difficulty, id and question
-
 ```json
 {
   "current_category": "History",
@@ -229,11 +223,9 @@ For each question included it gives the key-value pairs of answer,category, diff
 }
 
 `POST '/api/v1.0/quizzes'`
-
 - Returns a random question of a specific category that hasn't been already answered
 - Request Arguments: previous_questions and category
 - Returns:  A question with all its  info (answer, category, difficulty, id, question) of a specific category that wasn't already answered in the previous questions asked.
-
 ```json
 {
   "question": {
