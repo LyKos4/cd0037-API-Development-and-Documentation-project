@@ -139,8 +139,8 @@ You will need to provide detailed documentation of your API endpoints including 
   "success": true
 }
 
-
 `POST '/api/v1.0/questions'`
+
 
 - Creates a new question 
 - Request Arguments: question, answer, difficulty and category
