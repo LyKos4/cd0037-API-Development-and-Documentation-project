@@ -141,9 +141,8 @@ You will need to provide detailed documentation of your API endpoints including 
 
 `POST '/api/v1.0/questions'`
 
-
 - Creates a new question 
-- Request Arguments: question, answer, difficulty and category
+- Request Arguments: question, answer, difficulty, and category
 - Returns:  An object with the result of the creation  and the id of the created question
 
 ```json
@@ -151,6 +150,7 @@ You will need to provide detailed documentation of your API endpoints including 
   "created": 28,
   "success": true
 }
+
 
 
 `POST '/api/v1.0/questions/search'`
